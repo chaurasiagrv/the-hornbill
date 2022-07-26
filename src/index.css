@@ -1,0 +1,326 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overscroll-behavior-y: none;
+}
+
+/* ****************************************************************************************** */
+
+:root {
+  --color-primary: #4951b9;
+  --color-primary-dark: #393d6c;
+  --color-primary-light: #979bcc;
+  --color-error: #df3141;
+
+  /* misc  */
+  --color-text-dark: #2c3039;
+  --color-text-gray: #6c6d77;
+  --color-link: #5359c5;
+  --color-link-dark: #3c3b4a;
+  --color-bg-light: #f9f8fd;
+  --color-facebook: #207ff8;
+  --color-twitter: #1d9dee;
+  --color-instagram: #bc207c;
+  --color-youtube: #ff0000;
+  --color-linkedin: #346da6;
+
+  /* light */
+  --color-white: #ffffff;
+  --color-light: #eeeeee;
+  --color-light-gray: #acb0b3;
+
+  /* Ellipse colors */
+  --c-black: #000000;
+  --c-ink-dark: #546070;
+  --c-ink: #2c3039;
+  --c-ink-20: #eaeff5;
+  --c-ink-med: #546070;
+  --c-ink-light: #7e8b9d;
+  --c-ink-lighter: #a2abb7;
+  --c-sky-darkest: #bec4cd;
+  --c-sky-dark: #e0e6ee;
+  --c-sky: #f3f5fb;
+  --c-sky-light: #f9fafd;
+  --c-purple-darkest: #4f409c;
+  --c-purple-dark: #7863e1;
+  --c-purple: #866cff;
+  --c-purple-primiry-light: #927bff;
+  --c-purple-light: #dbd3ff;
+  --c-purple-lighter: #f3f0ff;
+  --с-vinous: #c12382;
+  --c-red-dark: #95343b;
+  --c-red: #ff5860;
+  --c-red-light: #ffcdcf;
+  --c-red-lighter: #ffeeef;
+  --c-green-dark: #1e7620;
+  --c-green: #33c635;
+  --c-green-light: #c2eec2;
+  --c-green-lighter: #ebf9eb;
+  --c-yellow-dark: #ab6500;
+  --c-yellow: #ffbb5b;
+  --c-yellow-light: #fff1b2;
+  --c-yellow-lighter: #fff8d8;
+  --c-pink-dark: #9647b0;
+  --c-pink: #dd56ff;
+  --c-pink-light: #f5ccff;
+  --c-pink-lighter: #fceeff;
+  --c-orange-dark: #b37214;
+  --c-orange: #ff9600;
+  --c-orange-light: #ffe0b3;
+  --c-orange-lighter: #fff5e6;
+  --c-blue-dark: #1282ae;
+  --c-blue: #00b8fc;
+  --c-blue-light: #b3eafe;
+  --c-blue-lighter: #e6f8ff;
+  --c-aqua-dark: #128c9b;
+  --c-aqua: #00c9dd;
+  --c-aqua-light: #b3eff5;
+  --c-aqua-lighter: #e6fafc;
+
+  /* shadows */
+  --shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  --shadow-tooltip: 0 2px 4px 0 rgba(18, 37, 51, 0.08);
+  --shadow-navbar-color: #edf0f4;
+
+  /* borders */
+  --color-border-1: #afb4b5;
+  --color-border-2: #ebecf5;
+  --color-border-3: #eceafa;
+  --color-border-4: #dbd5f4;
+  --color-border-tooltip: #f0f0f0;
+
+  /* component specific colors */
+  --color-textlink-primary: #6b56cc;
+
+  /* screen sizes */
+  --screen-xs-max: 39.9375em;
+  --screen-m-min: 40em;
+  --screen-m-max: 63.9375em;
+  --screen-l-min: 64em;
+  --screen-l-max: 74.9375em;
+  --screen-xl-min: 75em;
+}
+
+h1 {
+  font-size: 36px;
+  color: var(--c-ink);
+  font-weight: 600;
+  line-height: 48px;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--c-ink);
+  line-height: 36px;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--c-ink);
+  line-height: 36px;
+  margin: 0;
+}
+
+h4 {
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--c-ink);
+  line-height: 24px;
+}
+
+h5 {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--c-ink);
+  line-height: 24px;
+}
+
+.Subtitle {
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--c-ink);
+  line-height: 24px;
+}
+
+html,
+body {
+  font-family: 'CeraPro', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--c-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--c-sky);
+  margin: 0;
+}
+
+.Text--medium {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--c-ink-lighter);
+}
+
+.Text--bold {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--c-ink-light);
+}
+
+.App--noOutlineOnFocus {
+  outline: none;
+}
+
+.App--noOutlineOnFocus *:focus {
+  outline: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a,
+a:active {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+.App {
+  width: 100%;
+  height: 100%;
+}
+
+.CommonView__header {
+  line-height: 1.09;
+  margin-bottom: 28px;
+}
+
+/* utility classes */
+.u-margin-top-12 {
+  margin-top: 12px;
+}
+
+.u-margin-left-12 {
+  margin-left: 12px;
+}
+
+.u-margin-top-16 {
+  margin-top: 16px;
+}
+
+.u-margin-top-24 {
+  margin-top: 24px;
+}
+
+.u-margin-left-24 {
+  margin-left: 12px;
+}
+
+.u-margin-top-36 {
+  margin-top: 36px;
+}
+
+.u-margin-bottom-36 {
+  margin-bottom: 36px;
+}
+
+.u-margin-top-48 {
+  margin-top: 48px;
+}
+
+.u-margin-top-72 {
+  margin-top: 72px;
+}
+
+.u-margin--auto {
+  margin: auto;
+}
+
+.u-padding-bottom-24 {
+  padding-bottom: 24px;
+}
+
+.u-text-align-center {
+  text-align: center;
+}
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+input::placeholder {
+  color: var(--c-ink-lighter);
+}
+
+input {
+  border: 1px solid var(--c-sky-dark);
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 12px 16px;
+  width: 100%;
+}
+
+.noSelect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+textarea {
+  resize: none;
+}
+
+textarea::placeholder {
+  color: var(--c-sky-darkest);
+}
+
+.underline {
+  border: none;
+  cursor: pointer;
+  width: fit-content;
+  transition: all 0.2s ease-in-out;
+  border-bottom: 1px dashed rgba(224, 230, 238, 0);
+}
+
+.Card_Shadow:hover .underline {
+  border: none;
+  cursor: pointer;
+  width: fit-content;
+  transition: all 0.2s ease-in-out;
+  border-bottom: 1px dashed var(--c-sky-dark);
+}
+
+.underline_active,
+.Card_Shadow:hover .underline:hover {
+  border: none;
+  cursor: pointer;
+  border-bottom: 1px dashed var(--c-aqua);
+  transition: all 0.2s ease-in-out;
+}

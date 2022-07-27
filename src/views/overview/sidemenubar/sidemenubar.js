@@ -6,9 +6,9 @@ import "./sidemenubar.css";
 
 const SideMenuBar = () => {
   const response = useRecoilValue(UserDetailsState);
-  const [cookies, setCookie, removeCookie] = useCookies(["token"]);
+  const [removeCookie] = useCookies(["token"]);
   const history = useHistory();
-  
+
   const logout = () => {
     removeCookie("accessToken");
     history.push("/login");
@@ -16,7 +16,7 @@ const SideMenuBar = () => {
   return (
     <div className="main_side_bar">
       <button onClick={logout} className="profile_btn">
-        <img src={response.user?.avatar} className="profile_btn" />
+        <img src={response.avatar} className="profile_btn" />
       </button>
     </div>
   );

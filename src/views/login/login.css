@@ -1,93 +1,93 @@
 .Login_background {
-    display: flex;
+  display: flex;
 }
 
 .Login_container_left {
-    width: 50%;
-    height: 100vh;
-    background-color: var(--c-purple);
+  width: 50%;
+  height: 100vh;
+  background-color: var(--c-purple);
 }
 
 .Login_container_right {
-    width: 50%;
+  width: 50%;
 }
 
 .Login_card {
-    width: 100%;
-    background-color: transparent;
-    position: absolute;
-    top: 20px;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  background-color: transparent;
+  position: absolute;
+  top: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .Login_card_container_main {
-    position: relative;
-    width: 800px;
-    padding: 50px 64px;
-    border-radius: 10px;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  width: 800px;
+  padding: 50px 64px;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Login_card_container {
-    width: 360px;
-    max-height: 485px;
-    overflow: auto;
+  width: 360px;
+  max-height: 485px;
+  overflow: auto;
 }
 
 .hornbill_logo {
-    margin: 28px 10px 0px 0px;
+  margin: 28px 10px 0px 0px;
 }
 
 .Login_wlcm {
-    font-size: 26px;
-    color: var(--c-in);
-    font-weight: 700;
-    margin: 30px 0px;
+  font-size: 26px;
+  color: var(--c-in);
+  font-weight: 700;
+  margin: 30px 0px;
 }
 
 .Login_invalid {
-    font-size: 15px;
-    color: red;
+  font-size: 15px;
+  color: red;
 }
 
 .google_btn {
-    width: 100%;
-    height: 48px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--c-ink-light);
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    margin-bottom: 36px;
-    box-shadow: 0 2px 4px rgb(40 46 66 / 5%);
-    background-color: var(--color-white);
-    border: 1px solid #e0e6ee;
+  width: 100%;
+  height: 48px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--c-ink-light);
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 36px;
+  box-shadow: 0 2px 4px rgb(40 46 66 / 5%);
+  background-color: var(--color-white);
+  border: 1px solid #e0e6ee;
 }
 
 .email_input {
-    font-size: 15px;
-    padding: 0px 0px 24px;
-    color: var(--c-ink-light);
+  font-size: 15px;
+  padding: 0px 0px 24px;
+  color: var(--c-ink-light);
 }
 
 .btn_login {
-    width: 100%;
-    background-color: var(--c-purple);
-    color: var(--color-white);
-    height: 48px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 14px;
-    border: none;
+  width: 100%;
+  background-color: var(--c-purple);
+  color: var(--color-white);
+  height: 48px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  border: none;
 }
 
 .Login_sign {
-    color: var(--c-ink-light);
-    padding: 24px 0px 16px;
-    font-size: 15px;
+  color: var(--c-ink-light);
+  padding: 24px 0px 16px;
+  font-size: 15px;
 }

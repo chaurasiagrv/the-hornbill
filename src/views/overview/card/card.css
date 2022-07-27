@@ -1,0 +1,75 @@
+.card_content {
+  display: flex;
+}
+
+.card_content_left {
+  width: 60%;
+  height: 320px;
+  border: 1px solid var(--c-sky-dark);
+  border-radius: 10px;
+  margin-top: 12px;
+  padding: 18px 24px 16px 24px;
+}
+
+.impression_icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(134, 108, 255, 0.1);
+}
+
+.eye_icon {
+  font-size: 22px;
+  color: var(--c-purple);
+}
+
+.graph_title {
+  font-size: 14px;
+  color: var(--c-ink-light);
+  margin-left: 18px;
+}
+
+.graph_number {
+  font-size: 28px;
+  color: var(--color-text-dark);
+  margin-left: 18px;
+  font-weight: 700;
+}
+
+.graph_percentage {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--c-red);
+  margin-left: 16px;
+}
+.bar_graph {
+  width: 100%;
+  height: 200px;
+  margin-top: 8px;
+}
+
+.card_content_right {
+  width: 40%;
+  margin-top: 12px;
+  padding-left: 12px;
+}
+
+.card_content_recent {
+  width: 100%;
+  height: 178px;
+  border-radius: 10px;
+  margin-top: 12px;
+  padding: 14px 24px 16px 24px;
+  border: 1px solid var(--c-sky-dark);
+}
+
+.card_content_recent-posts {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 2px;
+  margin-left: 5px;
+  color: var(--color-text-dark);
+}

@@ -1,0 +1,14 @@
+.main_side_bar {
+    width: 65px;
+    background-color: var(--color-white);
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+  }
+  
+  .profile_btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    cursor: pointer;
+  }

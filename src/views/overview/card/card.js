@@ -1,3 +1,5 @@
+import { useRecoilValue } from "recoil";
+import { SocialDetailState } from "../../../stores/overview/states";
 import CardHeader from "./cardheader/cardheader";
 import Status from "./status/status";
 import Recent from "./recent/recent";
@@ -5,20 +7,26 @@ import Chart from "./chart/charts";
 import "./card.css";
 
 const Card = () => {
+  const socialdetail = useRecoilValue(SocialDetailState);
+  // const socialMediaTotal = socialdetail
+  //   .map((item) => item.metrics.impressions.total)
+  //   .reduce((a, b) => a + b);
+  //   console.log("socialMediaTotal--------==",socialMediaTotal);
+
   return (
-    <>
+    <div className="card_overall">
       <CardHeader />
       <div className="card_content">
         <div className="card_content_left">
           <div className="card_content">
             <div className="impression_icon">
-              <i class="ri-eye-fill eye_icon"></i>
+              <i className="ri-eye-fill eye_icon"></i>
             </div>
             <div>
               <div className="graph_title">POST IMPRESSION</div>
               <div className="card_content">
-                <div className="graph_number">4</div>
-                <div className="graph_percentage">-93%</div>
+                <div className="graph_number"></div>
+                <div className="graph_percentage">%</div>
               </div>
             </div>
           </div>
@@ -29,14 +37,11 @@ const Card = () => {
         <div className="card_content_right">
           <Status />
           <div className="card_content_recent">
-            <div className="card_content_recent-posts">
-              <Recent />{" "}
-            </div>
-            <div></div>
+            <Recent />
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

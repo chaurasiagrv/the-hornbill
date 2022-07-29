@@ -1,3 +1,9 @@
+.main_overall {
+  width: 100%;
+  padding: 28px 36px;
+  background-color: var(--c-outline-color);
+}
+
 .card_content {
   display: flex;
 }
@@ -66,10 +72,3 @@
   border: 1px solid var(--c-sky-dark);
 }
 
-.card_content_recent-posts {
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 2px;
-  margin-left: 5px;
-  color: var(--color-text-dark);
-}

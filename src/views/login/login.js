@@ -14,12 +14,12 @@ const LogIn = () => {
   const [isError, setisError] = useState(false);
   const [response, setResponse] = useRecoilState(UserDetailsState);
   const [isDisable, setIsDisable] = useState(false);
-  const [setCookie] = useCookies(["token"]);
+  const [cookies, setCookie] = useCookies(["token"]);
   const history = useHistory();
 
   const goMain = () => {
     setIsDisable(true);
-
+    
     // API CALL START
     const payload = { email, password, strategy: "local", token: "", id: "" };
     fetch(API_HOST + APIS.AUTHENTICATION, {
@@ -35,6 +35,7 @@ const LogIn = () => {
         if (res.accessToken) {
           setCookie("accessToken", res.accessToken);
           history.push("/main");
+          // setResponse(res);
           setIsDisable(false);
         } else {
           setisError(true);
@@ -108,7 +109,7 @@ const LogIn = () => {
                   width="40"
                   height="40"
                   frameBorder="0"
-                  class="giphy-embed"
+                  className="giphy-embed"
                   title="loader"
                 ></iframe>
               )}

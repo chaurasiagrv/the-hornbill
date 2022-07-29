@@ -1,0 +1,62 @@
+.user-profile_menu {
+  width: 236px;
+  height: 270px;
+  background-color: var(--c-ink);
+  position: absolute;
+  left: 65px;
+  bottom: 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.user_profile_container {
+  display: flex;
+  padding: 12px 20px;
+}
+
+.user_profile_img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+}
+
+.my_profile {
+  display: flex;
+  flex-direction: column;
+  margin-left: 9px;
+}
+
+.user_profile_myprofile {
+  color: var(--c-sky-darkest);
+  font-size: 12px;
+}
+
+.user_profile_user {
+  margin-top: -8px;
+  color: var(--c-sky-dark);
+}
+
+.user_profile_details {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.user_profile_details_icon{
+    margin-right: 9px;
+    font-size: 20px;
+}
+
+._upgrade{
+    color: var(--c-green);
+}
+._knowledge{
+    color: var(--c-sky-darkest);
+}
+
+._logout{
+    color: #ffabaf;
+}

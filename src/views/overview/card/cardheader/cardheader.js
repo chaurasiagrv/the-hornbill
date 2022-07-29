@@ -1,9 +1,11 @@
+import { useRecoilValue } from "recoil";
 import Tippy from "@tippyjs/react";
-import Facebook from "./../../../../Data Base/facebook.png";
+import { SocialDetailState } from "../../../../stores/overview/states";
 import "tippy.js/dist/tippy.css";
 import "./cardheader.css";
 
 const CardHeader = () => {
+  const socialdetail = useRecoilValue(SocialDetailState);
   return (
     <>
       <div className="card_header">
@@ -12,19 +14,20 @@ const CardHeader = () => {
           <div className="card_header_last-seen">Last 28 days</div>
         </div>
         <div className="card_header_detail">
-          <div className="card_header_data-source">Data source (2):</div>
-          <div className="card_header_detail">
-            <Tippy content="Techic Paper">
-              <div className="card_header_fb">
-                <img src={Facebook} alt="F" />
-              </div>
-            </Tippy>
-            <Tippy content="Chakia Beautiful City">
-              <div className="card_header_fb">
-                <img src={Facebook} alt="F" />
-              </div>
-            </Tippy>
+          <div className="card_header_data-source">
+            Data source ({socialdetail.map((item) => item.datasource).length}):
           </div>
+          {socialdetail
+            .map((item) => item.datasource)
+            .map((icon) => (
+              <div className="card_header_detail">
+                <Tippy content="Sparrow Charts">
+                  <div className="card_header_fb">
+                    <i className={`ri-${icon}-line _${icon}`}></i>
+                  </div>
+                </Tippy>
+              </div>
+            ))}
           <button className="see-more_btn">See more</button>
         </div>
       </div>

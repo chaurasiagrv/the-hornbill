@@ -1,15 +1,10 @@
-.main_overall {
-  width: 100%;
-  padding: 28px 36px;
-  background-color: var(--c-outline-color);
-}
-
 .main_overview {
   font-size: 28px;
   color: var(--c-ink);
   font-weight: 700;
   padding-bottom: 22px;
 }
+
 .card_overall {
   padding: 20px;
   /* width: 1213px; */

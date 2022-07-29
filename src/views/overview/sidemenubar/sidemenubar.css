@@ -1,14 +1,28 @@
 .main_side_bar {
-    width: 65px;
-    background-color: var(--color-white);
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-  }
-  
-  .profile_btn {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    cursor: pointer;
-  }
+  width: 65px;
+  height: 100vh;
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.setting_btn {
+  font-size: 30px;
+  cursor: pointer;
+  margin-bottom: 24px;
+  color: var(--c-ink-light);
+}
+
+.setting_btn:hover {
+  color: var(--c-purple-dark);
+}
+
+.profile_btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 24px;
+}

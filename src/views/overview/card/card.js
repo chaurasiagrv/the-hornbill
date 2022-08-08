@@ -8,10 +8,9 @@ import "./card.css";
 
 const Card = () => {
   const socialdetail = useRecoilValue(SocialDetailState);
-  // const socialMediaTotal = socialdetail
-  //   .map((item) => item.metrics.impressions.total)
-  //   .reduce((a, b) => a + b);
-  //   console.log("socialMediaTotal--------==",socialMediaTotal);
+  const socialMediaTotal = socialdetail.map(
+    (item) => item.metrics.impressions.total
+  );
 
   return (
     <div className="card_overall">
@@ -25,7 +24,11 @@ const Card = () => {
             <div>
               <div className="graph_title">POST IMPRESSION</div>
               <div className="card_content">
-                <div className="graph_number"></div>
+                <div className="graph_number">
+                  {socialMediaTotal.length > 0
+                    ? socialMediaTotal.reduce((a, b) => a + b)
+                    : ""}
+                </div>
                 <div className="graph_percentage">%</div>
               </div>
             </div>

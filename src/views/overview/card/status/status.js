@@ -4,7 +4,9 @@ import "./status.css";
 
 const Status = () => {
   const socialdetail = useRecoilValue(SocialDetailState);
-  // {socialdetail.map(item=>item.metrics.clicks.total).reduce((a,b)=>a+b)}
+  const socialClickTotal = socialdetail.map(
+    (item) => item.metrics.clicks.total
+  );
   return (
     <div className="card_content_status">
       <div className="card_content_status_detail">
@@ -28,7 +30,11 @@ const Status = () => {
           <i className="ri-mouse-fill status_icon"></i>
         </div>
         <div className="status_icon_title">Clicks</div>
-        <div className="status_icon_view"></div>
+        <div className="status_icon_view">
+          {socialClickTotal.length > 0
+            ? socialClickTotal.reduce((a, b) => a + b)
+            : ""}
+        </div>
         <div className="status_icon_percentage">-100%</div>
       </div>
     </div>

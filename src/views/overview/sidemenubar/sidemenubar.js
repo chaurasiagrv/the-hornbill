@@ -36,13 +36,13 @@ const SideMenuBar = () => {
       </Tippy>
       <Tippy
         content={`User profile
-       ${response.name}`}
+       ${response?.name}`}
         placement="right"
       >
         <img
-          src={response.avatar}
+          src={response?.avatar}
           onClick={() => setUserProfile((prestate) => !prestate)}
-          className="profile_btn"
+          className="profile_btn" alt="user"
         />
       </Tippy>
       {userProfile && <UserProfile />}

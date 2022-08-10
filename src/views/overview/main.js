@@ -9,9 +9,11 @@ import { SelectedClientState } from "../../stores/client/state";
 import SideMenuBar from "./sidemenubar/sidemenubar";
 import Card from "./card/card";
 import "./main.css";
+import { SelectedClientListState } from "../../stores/client/client-list";
 
 const Main = () => {
   const [clientdetail, setclientdetail] = useRecoilState(SelectedClientState);
+  const setclientlistdetail = useSetRecoilState(SelectedClientListState);
   const setsocialdetail = useSetRecoilState(SocialDetailState);
   const setuserdetail = useSetRecoilState(UserDetailsState);
   const [cookies] = useCookies();
@@ -46,14 +48,13 @@ const Main = () => {
       .then((res) => res.json())
       .then((res) => {
         if (res.data.length > 0) {
-          setclientdetail(res.data[1]);
+          setclientdetail(res.data[0]);
+          setclientlistdetail(res.data);
         }
       });
   };
 
   const getInsightsData = () => {
-    console.log("getinsight===", clientdetail);
-
     if (clientdetail?.id) {
       fetch(API_HOST + APIS.OVERVIEW + clientdetail.id + APIS.OVERVIEW_DATE, {
         headers: {
@@ -67,6 +68,7 @@ const Main = () => {
               item.datasource === "facebook" || item.datasource === "instagram"
           );
           setsocialdetail(setsocialdetail1);
+          console.log("getinsight===", setsocialdetail1);
         });
     }
   };

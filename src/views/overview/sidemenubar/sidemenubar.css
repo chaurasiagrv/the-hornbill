@@ -4,14 +4,31 @@
   background-color: var(--color-white);
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: space-between;
+}
+
+.main_side_bottom{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.workspace_icon{
+  width: 36px;
+  height: 36px;
+  border-radius: 50px;
+  margin: 10px 0px;
+  cursor: pointer;
+  background-image: url("http://cdn.onlinewebfonts.com/svg/img_378667.png");
+  background-size: 100% 100%;
 }
 
 .setting_btn {
   font-size: 28px;
   cursor: pointer;
-  margin-bottom: 24px;
+  margin: 24px 0px;
   color: var(--c-ink-light);
 }
 

@@ -2,23 +2,33 @@ import { useEffect } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { useCookies } from "react-cookie";
 
-import { SocialDetailState } from "./../../stores/overview/states";
+import { SelectedClientListState } from "../../stores/client/client-list";
+import { socialDetailState } from "./../../stores/overview/states";
 import { API_HOST, APIS } from "../../assets/constants/api";
-import { UserDetailsState } from "../../stores/user/states";
+import { UserDetailsState, UserState } from "../../stores/user/states";
 import { SelectedClientState } from "../../stores/client/state";
+import { LoaderState } from "../../stores/loader/loader";
 import SideMenuBar from "./sidemenubar/sidemenubar";
 import Card from "./card/card";
 import "./main.css";
-import { SelectedClientListState } from "../../stores/client/client-list";
 
+export const SOCIALS = [
+  "facebook",
+  "instagram",
+  "twitter",
+  "youtube",
+  "linkedin",
+];
 const Main = () => {
-  const [clientdetail, setclientdetail] = useRecoilState(SelectedClientState);
-  const setclientlistdetail = useSetRecoilState(SelectedClientListState);
-  const setsocialdetail = useSetRecoilState(SocialDetailState);
-  const setuserdetail = useSetRecoilState(UserDetailsState);
+  const [clientDetail, setClientDetail] = useRecoilState(SelectedClientState);
+  const setUser = useSetRecoilState(UserState);
+  const setClientListDetail = useSetRecoilState(SelectedClientListState);
+  const setSocialDetail = useSetRecoilState(socialDetailState);
+  const setUserDetail = useSetRecoilState(UserDetailsState);
+  const setIsLoader = useSetRecoilState(LoaderState);
   const [cookies] = useCookies();
 
-  const getuserdata = () => {
+  const getUserData = () => {
     fetch(API_HOST + APIS.USER, {
       headers: {
         Authorization: `Bearer ${cookies.accessToken}`,
@@ -26,20 +36,21 @@ const Main = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        setuserdetail(res.data[0]);
+        setUserDetail(res.data[0]);
+        setUser({ name: `${res.data[0].name}`, email: `${res.data[0].email}` });
       });
   };
   useEffect(() => {
-    getuserdata();
-    getClientdata();
+    getUserData();
+    getClientData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
     getInsightsData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [clientdetail]);
+  }, [clientDetail]);
 
-  const getClientdata = () => {
+  const getClientData = () => {
     fetch(API_HOST + APIS.CLIENT, {
       headers: {
         Authorization: `Bearer ${cookies.accessToken}`,
@@ -48,33 +59,32 @@ const Main = () => {
       .then((res) => res.json())
       .then((res) => {
         if (res.data.length > 0) {
-          setclientdetail(res.data[0]);
-          setclientlistdetail(res.data);
+          setClientDetail(res.data[0]);
+          setClientListDetail(res.data);
         }
       });
   };
 
   const getInsightsData = () => {
-    if (clientdetail?.id) {
-      fetch(API_HOST + APIS.OVERVIEW + clientdetail.id + APIS.OVERVIEW_DATE, {
+    if (clientDetail?.id) {
+      fetch(API_HOST + APIS.OVERVIEW + clientDetail.id + APIS.OVERVIEW_DATE, {
         headers: {
           Authorization: `Bearer ${cookies.accessToken}`,
         },
       })
         .then((res) => res.json())
         .then((res) => {
-          const setsocialdetail1 = res.data.filter(
-            (item) =>
-              item.datasource === "facebook" || item.datasource === "instagram"
+          const setSocialDetail1 = res.data.filter((item) =>
+            SOCIALS.includes(item.datasource)
           );
-          setsocialdetail(setsocialdetail1);
-          console.log("getinsight===", setsocialdetail1);
+          setSocialDetail(setSocialDetail1);
+          setIsLoader(false);
         });
     }
   };
 
   return (
-    <div className="card_content">
+    <div className="card_container">
       <SideMenuBar />
       <div className="main_overall">
         <div className="main_overview">Overview</div>

@@ -39,12 +39,20 @@
   margin-left: 2px;
 }
 
-._facebook{
+._facebook {
   color: var(--color-facebook);
 }
-
-._instagram{
+._instagram {
   color: var(--color-instagram);
+}
+._twitter {
+  color: var(--color-twitter);
+}
+._linkedin {
+  color: var(--color-linkedin);
+}
+._youtube{
+  color: var(--color-youtube);
 }
 
 .see-more_btn {

@@ -12,7 +12,7 @@ const LogIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isError, setisError] = useState(false);
-  const [response, setResponse] = useRecoilState(UserDetailsState);
+  const [userDetail, setUserDetail] = useRecoilState(UserDetailsState);
   const [isDisable, setIsDisable] = useState(false);
   const [cookies, setCookie] = useCookies(["token"]);
   const history = useHistory();
@@ -35,7 +35,7 @@ const LogIn = () => {
         if (res.accessToken) {
           setCookie("accessToken", res.accessToken);
           history.push("/main");
-          // setResponse(res);
+          // setUserDetail(res);
           setIsDisable(false);
         } else {
           setisError(true);
@@ -89,8 +89,8 @@ const LogIn = () => {
                 />
               </label>
             </div>
-            {response.user?.name && (
-              <div>Hi!! {response.user.name} weclome to The HrnBill</div>
+            {userDetail.user?.name && (
+              <div>Hi!! {userDetail.user.name} weclome to The HrnBill</div>
             )}
             <button
               onClick={goMain}

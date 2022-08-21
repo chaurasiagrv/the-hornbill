@@ -6,7 +6,7 @@ import "./userprofile.css";
 
 const UserProfile = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["token"]);
-  const response = useRecoilValue(UserDetailsState);
+  const userDetail = useRecoilValue(UserDetailsState);
   const history = useHistory();
   const logout = () => {
     history.push("/login");
@@ -16,19 +16,20 @@ const UserProfile = () => {
   return (
     <div className="user-profile_menu">
       <div className="user_profile_container">
-        <img src={response.avatar} className="user_profile_img" />
+        <img src={userDetail.avatar} className="user_profile_img" alt="" />
         <div className="my_profile">
-          <div className="user_profile_myprofile"> My Profile</div>
-          <div className="user_profile_user">{response.name}</div>
+          <div className="user_profile_myProfile"> My Profile</div>
+          <div className="user_profile_user">{userDetail.name}</div>
         </div>
       </div>
       <div className="user_profile_details _upgrade">
-        <i className="ri-arrow-up-line user_profile_details_icon"></i>Upgrade plan
+        <i className="ri-arrow-up-line user_profile_details_icon"></i>Upgrade
+        plan
       </div>
       <div className="user_profile_details _knowledge">
         <i className="ri-add-line user_profile_details_icon"></i>Invite new user
       </div>
-      <div className="user_profile_details _knowledge" >
+      <div className="user_profile_details _knowledge">
         <i className="ri-arrow-right-up-line user_profile_details_icon"></i>
         Knowledge base
       </div>

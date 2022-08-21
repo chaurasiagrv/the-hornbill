@@ -1,11 +1,11 @@
 import { useRecoilValue } from "recoil";
 import Tippy from "@tippyjs/react";
-import { SocialDetailState } from "../../../../stores/overview/states";
+import { socialDetailState } from "../../../../stores/overview/states";
 import "tippy.js/dist/tippy.css";
 import "./cardheader.css";
 
 const CardHeader = () => {
-  const socialdetail = useRecoilValue(SocialDetailState);
+  const socialDetail = useRecoilValue(socialDetailState);
   return (
     <>
       <div className="card_header">
@@ -15,15 +15,15 @@ const CardHeader = () => {
         </div>
         <div className="card_header_detail">
           <div className="card_header_data-source">
-            Data source ({socialdetail.map((item) => item.datasource).length}):
+            Data source ({socialDetail.map((item) => item.datasource).length}):
           </div>
-          {socialdetail
+          {socialDetail
             .map((item) => item.datasource)
             .map((icon) => (
               <div className="card_header_detail">
                 <Tippy content="Sparrow Charts">
                   <div className="card_header_fb">
-                    <i className={`ri-${icon}-line _${icon}`}></i>
+                    <i className={`ri-${icon}-fill _${icon}`}></i>
                   </div>
                 </Tippy>
               </div>

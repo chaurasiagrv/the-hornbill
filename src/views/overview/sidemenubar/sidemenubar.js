@@ -1,38 +1,61 @@
 import { useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useCookies } from "react-cookie";
 import Tippy from "@tippyjs/react";
 
-import { SelectedClientState } from "../../../stores/client/state";
 import { UserDetailsState } from "./../../../stores/user/states";
 import UserProfile from "./userprofile/userprofile";
+import { SelectedClientListState } from "../../../stores/client/client-list";
+import { APIS, API_HOST } from "../../../assets/constants/api";
+import { socialDetailState } from "../../../stores/overview/states";
+import { SOCIALS } from "../main";
 import "tippy.js/dist/tippy.css";
 import "./sidemenubar.css";
-import { SelectedClientListState } from "../../../stores/client/client-list";
+import { LoaderState } from "../../../stores/loader/loader";
 
 const SideMenuBar = () => {
   const userprofile = useRecoilValue(UserDetailsState);
-  const setclientdetail = useSetRecoilState(SelectedClientState);
-  const clientlistdetail = useRecoilValue(SelectedClientListState);
+  const clientListDetail = useRecoilValue(SelectedClientListState);
+  const setSocialDetail = useSetRecoilState(socialDetailState);
+  const setIsLoader = useSetRecoilState(LoaderState);
   const [userProfile, setUserProfile] = useState(false);
   const history = useHistory();
   const location = useLocation();
+  const [cookies] = useCookies();
 
   const setting = () => {
     history.push("/setting");
   };
-console.log("===0==",setclientdetail);
+  const getInsightsData = (item) => {
+    history.push("/main");
+    
+    setIsLoader(true);
+    if (item?.id) {
+      fetch(API_HOST + APIS.OVERVIEW + item.id + APIS.OVERVIEW_DATE, {
+        headers: {
+          Authorization: `Bearer ${cookies.accessToken}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          const setSocialDetail1 = res.data.filter((item) =>
+            SOCIALS.includes(item.datasource)
+          );
+          setSocialDetail(setSocialDetail1);
+          setIsLoader(false);
+        });
+    }
+  };
+
   return (
     <div className="main_side_bar">
       <div className="main_side_bottom">
-        {clientlistdetail.map((item) => (
+        {clientListDetail.map((item, index) => (
           <Tippy content={`Workspace ${item?.name}`} placement="right">
-            <img
-              src={item?.logo}
-              alt=""
-              className="workspace_icon"
-              onClick={() => setclientdetail(item)}
-            />
+            <div onClick={() => getInsightsData(item)} key={index}>
+              <img src={item?.logo} alt="" className="workspace_icon" />
+            </div>
           </Tippy>
         ))}
       </div>
@@ -54,12 +77,9 @@ console.log("===0==",setclientdetail);
        ${userprofile?.name}`}
           placement="right"
         >
-          <img
-            src={userprofile?.avatar}
-            onClick={() => setUserProfile((prestate) => !prestate)}
-            className="profile_btn"
-            alt="user"
-          />
+          <div onClick={() => setUserProfile((prestate) => !prestate)}>
+            <img src={userprofile?.avatar} className="profile_btn" alt="user" />
+          </div>
         </Tippy>
       </div>
       {userProfile && <UserProfile />}

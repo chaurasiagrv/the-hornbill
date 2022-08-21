@@ -72,3 +72,9 @@
   border: 1px solid var(--c-sky-dark);
 }
 
+.on_error_card{
+  font-size: 16px;
+  color: var(--c-ink-light);
+  display: flex;
+  justify-content: center;
+}
